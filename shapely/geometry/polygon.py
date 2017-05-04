@@ -311,7 +311,7 @@ class Polygon(BaseGeometry):
             'coordinates': tuple(coords)
             }
 
-    def svg(self, scale_factor=1., fill_color=None):
+    def svg(self, scale_factor=1., fill_color=None, classes=''):
         """Returns SVG path element for the Polygon geometry.
 
         Parameters
@@ -335,9 +335,9 @@ class Polygon(BaseGeometry):
             "M {0} L {1} z".format(coords[0], " L ".join(coords[1:]))
             for coords in exterior_coords + interior_coords])
         return (
-            '<path fill-rule="evenodd" fill="{2}" stroke="#555555" '
+            '<path class="{4}" fill-rule="evenodd" fill="{2}" stroke="#555555" '
             'stroke-width="{0}" opacity="0.6" d="{1}" />'
-            ).format(2. * scale_factor, path, fill_color)
+            ).format(2. * scale_factor, path, fill_color, classes)
 
     @classmethod
     def from_bounds(cls, xmin, ymin, xmax, ymax):
