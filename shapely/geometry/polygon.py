@@ -335,7 +335,7 @@ class Polygon(BaseGeometry):
             "M {0} L {1} z".format(coords[0], " L ".join(coords[1:]))
             for coords in exterior_coords + interior_coords])
         return (
-            '<path class="{4}" fill-rule="evenodd" fill="{2}" stroke="#555555" '
+            '<path class="{3}" fill-rule="evenodd" fill="{2}" stroke="#555555" '
             'stroke-width="{0}" opacity="0.6" d="{1}" />'
             ).format(2. * scale_factor, path, fill_color, classes)
 
